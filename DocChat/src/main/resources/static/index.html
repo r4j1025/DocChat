@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DocChat</title>
+</head>
+<body>
+
+<h2>Upload Document</h2>
+<textarea id="doc" rows="8" cols="80"></textarea><br><br>
+<button onclick="upload()">Upload</button>
+
+<hr>
+
+<h2>Ask Question</h2>
+<input id="q" size="80">
+<button onclick="ask()">Ask</button>
+
+<h3>Answer</h3>
+<pre id="ans"></pre>
+
+<script>
+function upload() {
+    fetch('/chat/upload', {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain'},
+        body: document.getElementById('doc').value
+    })
+    .then(res => res.text())
+    .then(alert);
+}
+
+function ask() {
+    fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain'},
+        body: document.getElementById('q').value
+    })
+    .then(res => res.text())
+    .then(data => document.getElementById('ans').innerText = data);
+}
+</script>
+
+</body>
+</html>
