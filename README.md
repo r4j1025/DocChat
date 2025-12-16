@@ -1,6 +1,3 @@
-Here is a **clean, professional, GitHub-ready `README.md`** written **exactly for your DocChat project**, matching your **Spring AI + Ollama + PGVector** setup and your configs.
-
-You can **copy-paste this directly** into `README.md`.
 
 ---
 
